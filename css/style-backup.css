@@ -1,0 +1,1365 @@
+/* =====================================================================
+   00. THIẾT LẬP NỀN TẢNG
+   Bộ chọn toàn cục và các thuộc tính mặc định cho toàn trang.
+   Nếu cần chỉnh khoảng cách mặc định, bắt đầu kiểm tra ở phần này.
+   ===================================================================== */
+* {
+  margin: 0;
+}
+body {
+  margin: 0px;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* =====================================================================
+   01. KHUNG BAO VÀ KHỔ TRANG CV
+   .cv-document: lớp bao ngoài, đặt font và cỡ chữ cơ sở của CV.
+   .cv-page: trang CV màu trắng, giới hạn chiều rộng, căn giữa và tạo lề trong.
+   .section: khoảng cách dọc giữa các khu vực lớn của trang.
+   ===================================================================== */
+.cv-document {
+  box-sizing: border-box;
+  border: none;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: arial, sans-serif, tahoma;
+  font-size: 10pt;
+}
+/* KHUNG TRANG CV — Thiết lập chiều rộng, căn giữa trang, màu nền, đổ bóng và khoảng đệm bên trong. */
+.cv-page {
+  box-sizing: border-box;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  text-decoration: none;
+  width: 900px;
+  min-height: 900px;
+  margin: 0 auto;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  position: relative;
+
+  padding: 40px;
+}
+.section {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+/* TIÊU ĐỀ KHU VỰC — Viết hoa tiêu đề, thêm đường kẻ phân cách và tạo khoảng cách với nội dung bên dưới. */
+.section-title {
+  text-transform: uppercase;
+  border-bottom: 1px solid #333;
+  margin-bottom: 10px;
+}
+.section-content {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+/* Tên/tiêu đề dự án: quy tắc cơ sở dùng lại; còn có thiết lập kiểu chữ/màu ở cuối file. */
+.project-title {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.project {
+  margin-bottom: 20px;
+}
+
+/* =====================================================================
+   02. CÁC CLASS TIỆN ÍCH VÀ BỐ CỤC PHỤ
+   Các class trong nhóm này hỗ trợ cách trình bày mốc thời gian, danh sách
+   và một số nội dung dùng lại. Đây không phải các khu vực chính trên CV.
+   ===================================================================== */
+.overview-item {
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+/* BỐ CỤC MỐC THỜI GIAN — .overview-date dành cho mốc thời gian; .overview-list tạo khoảng thụt cho danh sách. Đây là các class tiện ích phụ, không phải khối Tổng quan chính. */
+.overview-date {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+.overview-list {
+  padding-left: 20px;
+}
+/* ẢNH BANNER ĐẦU TRANG — Ảnh phủ kín chiều rộng khung, có chiều cao xác định và ưu tiên hiển thị phần trên của ảnh. */
+/* =====================================================================
+   03. BANNER ĐẦU TRANG VÀ CHỮ ĐÈ LÊN ẢNH
+   .main-avatar là khung định vị banner.
+   .avatar là ảnh banner; .centered đặt tên và chức danh trên ảnh.
+   .centered h1 và .centered p điều chỉnh riêng kiểu chữ của tên/chức danh.
+   ===================================================================== */
+.avatar {
+  width: 100%;
+  display: block;
+  height: 255px;
+  object-fit: cover;
+  object-position: center top;
+}
+.centered {
+  color: white;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Dòng màu nền thử nghiệm đang tắt; có thể bật khi cần kiểm tra vị trí chữ trên banner. */
+  text-align: center;
+}
+.centered h1 {
+  margin-bottom: 0px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.centered p {
+  margin-top: 0px;
+  font-size: 10px;
+}
+/* Khung định vị của banner: dùng làm mốc để đặt chữ chồng lên ảnh. */
+.main-avatar {
+  width: 100%;
+  position: relative;
+}
+
+/* ĐƯỜNG VIỀN PHÂN CÁCH — Quy tắc viền trên/dưới và khoảng đệm dọc cho khối có class .contact. */
+.contact {
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  padding: 10px 0;
+}
+#certificate .overview-content {
+  width: 60%;
+}
+#certificate .overview-date {
+  width: 30%;
+}
+#hobby .overview-item {
+  border: none;
+  padding: 0;
+}
+/* =====================================================================
+   04. THANH ĐIỀU HƯỚNG NGAY DƯỚI BANNER
+   .nav: toàn bộ thanh menu.
+   .nav-space: hai khoảng trống ngoài cùng.
+   .nav-left / .nav-right: hai nhóm liên kết.
+   .nav-center: tên và chức danh ở giữa.
+   .avatar-circle: ảnh đại diện tròn chồng lên thanh menu (được định dạng bên dưới).
+   Muốn chỉnh vị trí các liên kết trên máy tính, hãy tìm các class trong nhóm này.
+   ===================================================================== */
+.nav {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #f7f7f7;
+
+  position: relative;
+}
+
+/* THANH ĐIỀU HƯỚNG — Khoảng trống hai đầu giúp các nhóm liên kết và phần tên giữ đúng vị trí ngang. */
+.nav-space {
+  flex: 0 0 22.45%;
+}
+
+/* THANH ĐIỀU HƯỚNG — Khung hai nhóm liên kết trái/phải; mỗi nhóm chứa các liên kết và chiếm tỷ lệ chiều rộng đã thiết kế. */
+.nav-left,
+.nav-right {
+  flex: 0 0 16.33%;
+
+  display: flex;
+  height: 100%;
+}
+
+/* THANH ĐIỀU HƯỚNG — Nhóm liên kết bên trái, căn các liên kết về phía giữa thanh. */
+.nav-left {
+  justify-content: flex-end;
+}
+
+/* THANH ĐIỀU HƯỚNG — Nhóm liên kết bên phải, bắt đầu từ khu vực giữa và hướng ra mép phải. */
+.nav-right {
+  justify-content: flex-start;
+}
+
+/* THANH ĐIỀU HƯỚNG — Các liên kết: quy định đường viền, kích thước, cách căn chữ/biểu tượng, màu và cỡ chữ. */
+.nav-left a {
+  border-left: 1px solid #f7f7f7;
+}
+.nav-right a {
+  border-right: 1px solid #f7f7f7;
+}
+.nav-left a,
+.nav-right a {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  font-size: 8px;
+  text-align: center;
+}
+
+/* THANH ĐIỀU HƯỚNG — Phần giữa hiển thị tên và chức danh; sẽ được ẩn trên màn hình nhỏ hơn. */
+.nav-center {
+  flex: 0 0 22.45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid #f7f7f7;
+  border-left: 1px solid #f7f7f7;
+}
+
+.nav-center div {
+  font-size: 14px;
+  color: #333;
+}
+
+.nav-center span {
+  font-size: 8px;
+  color: #aaa;
+}
+.nav-left a i,
+.nav-right a i {
+  margin-right: 4px;
+  color: #159fe5;
+  font-size: 12px;
+}
+/* =====================================================================
+   05. OVERVIEW — TỔNG QUAN VÀ THÔNG TIN CÁ NHÂN
+   .overview: khung chứa hai nửa của khu vực tổng quan.
+   .overview-left / .overview-content: mục tiêu nghề nghiệp bên trái.
+   .overview-right / .overview-info: thông tin cá nhân bên phải.
+   Các quy tắc màu nền, kích thước, lề và cỡ chữ nằm ngay dưới.
+   ===================================================================== */
+.overview {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  width: 100%;
+  height: 350px;
+}
+
+/* TỔNG QUAN — CỘT TRÁI: nền xám nhạt, nội dung được căn giữa theo hai chiều. */
+.overview-left {
+  background-color: #f5f5f5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TỔNG QUAN — NỘI DUNG CỘT TRÁI: giới hạn chiều rộng và tạo lề quanh phần mục tiêu nghề nghiệp. */
+.overview-content {
+  width: 80%;
+  height: 60%;
+  margin: 0 30px;
+}
+.overview-content h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+.overview-content p {
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: normal;
+  color: #808080;
+}
+
+/* TỔNG QUAN — CỘT PHẢI: nền xám, chứa khối thông tin cá nhân. */
+.overview-right {
+  background-color: #f0f0f0;
+
+  display: flex;
+  align-items: center;
+}
+
+/* TỔNG QUAN — NỘI DUNG CỘT PHẢI: tiêu đề và từng dòng thông tin cá nhân. */
+.overview-info {
+  width: 80%;
+  height: 60%;
+  margin: 0 30px;
+}
+.overview-info h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+.overview-info p {
+  font-size: 12px;
+  font-weight: normal;
+  color: #808080;
+  line-height: 20px;
+}
+.overview-info p strong {
+  font-size: 12px;
+  font-weight: normal;
+  color: #000000;
+}
+
+/* SÁU THẺ THÔNG TIN CÁ NHÂN — .info là lưới chứa thẻ; .info-items là từng khung; .info-title là hàng tiêu đề và biểu tượng; .info-content chứa nội dung. Quy tắc đổi số cột trên màn hình nhỏ nằm trong các khối điều chỉnh giao diện theo kích thước màn hình ở cuối file. */
+/* =====================================================================
+   06. SÁU THẺ THÔNG TIN CÁ NHÂN
+   .info: lưới chứa các thẻ.
+   .info-items: khung viền của từng thẻ.
+   .info-title / .info-title-text / .info-title-icon: tiêu đề và biểu tượng.
+   .info-content: phần nội dung bên trong mỗi thẻ.
+   Muốn đổi số cột hoặc khoảng cách, bắt đầu từ .info.
+   Nếu nội dung bị cắt, kiểm tra height và overflow của .info-items.
+   ===================================================================== */
+.info {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.info-items {
+  margin: 0;
+  border: #ccc 1px solid;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+#experience-section.info-items {
+  height: 400px;
+}
+#personal-section.info-items {
+  height: 250px;
+}
+
+/* Hàng đầu của mỗi thẻ: chia không gian cho tên thẻ và biểu tượng. */
+.info-title {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  height: 100px;
+}
+/* Chữ tiêu đề của từng thẻ thông tin. */
+.info-title-text {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: left;
+  margin: 10px;
+  align-items: center;
+  font-size: 16px;
+}
+/* Biểu tượng ở phần tiêu đề của thẻ thông tin. */
+.info-title-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+/* Nội dung bên trong thẻ; các mục kinh nghiệm/học vấn có quy tắc riêng ở dưới. */
+.info-content {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  width: 100%;
+  font-size: 8px;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+}
+/* ---------------------------------------------------------------------
+   06.1. KINH NGHIỆM, HỌC VẤN VÀ HOẠT ĐỘNG
+   .experience-item: một mục gồm chấm xanh và phần chữ.
+   .experience-dot: chấm xanh đầu mục.
+   .experience-content: tiêu đề và mô tả của mục.
+   .info-date: dòng ngày tháng, hiển thị kiểu chữ nghiêng.
+   --------------------------------------------------------------------- */
+.experience-dot {
+  width: 5px;
+  height: 5px;
+  background-color: #159fe5;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.experience-item {
+  display: grid;
+  grid-template-columns: 15px 1fr;
+  column-gap: 10px;
+  margin-bottom: 20px;
+  line-height: 10px;
+  letter-spacing: 0px;
+}
+.experience-content p span {
+  background-color: #159fe5;
+  color: white;
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+.experience-content h4 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+.info-date {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+/* THẺ SỞ THÍCH — .hobby chứa các sở thích; .hobby-item là từng mục; .hobby-icon là vòng biểu tượng; .hobby-text là nhãn phía dưới. */
+/* ---------------------------------------------------------------------
+   06.2. SỞ THÍCH
+   .hobby là khung chứa các sở thích; .hobby-item là từng mục.
+   .hobby-icon định dạng vòng biểu tượng; .hobby-text là nhãn bên dưới.
+   --------------------------------------------------------------------- */
+.hobby {
+  margin: 0 10px;
+  display: flex;
+  align-content: start;
+  height: 100%;
+}
+.hobby-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+}
+.hobby-icon {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+  margin-bottom: 5px;
+  border: 1px solid #159fe5;
+  padding: 6px 6px;
+  border-radius: 100%;
+  color: #159fe5;
+  justify-content: center;
+  align-items: center;
+}
+.hobby-text {
+  font-size: 6px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------
+   06.3. NGÔN NGỮ VÀ KỸ NĂNG
+   .bar-item là một mục ngôn ngữ/kỹ năng.
+   .bar-title là tên mục; .bar-progress chứa các vạch đánh giá.
+   .bar là vạch chưa đạt; .bar.active là vạch được tô xanh.
+   --------------------------------------------------------------------- */
+.bar-item {
+  margin: 0 10px 10px;
+}
+
+.bar-title {
+  font-size: 8px;
+  margin-bottom: 5px;
+  color: #777;
+}
+
+.bar-progress {
+  align-content: start;
+  display: flex;
+  gap: 5px;
+}
+
+.bar {
+  width: 30px;
+  height: 2px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+.bar.active {
+  background-color: #159fe5;
+}
+
+/* KHU VỰC CHỨNG CHỈ – GIẢI THƯỞNG — .certificate-section là khung ngoài; các class .certificate-* điều khiển tiêu đề, lưới, ảnh và nội dung từng thẻ. */
+/* =====================================================================
+   07. CHỨNG CHỈ VÀ GIẢI THƯỞNG
+   .certificate-section: khung ngoài và màu nền của cả khu vực.
+   .certificate-title: tiêu đề khu vực.
+   .certificate-list: lưới sắp xếp danh sách chứng chỉ.
+   .certificate-item: từng thẻ gồm ảnh và phần mô tả.
+   .certificate-image img / .certificate-content: ảnh và phần chữ của thẻ.
+   ===================================================================== */
+.certificate-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+/* Tiêu đề “Chứng chỉ – Giải thưởng”. */
+.certificate-title {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+/* LƯỚI CHỨNG CHỈ — Chia danh sách thành hai cột trên màn hình lớn; cách bố trí thay đổi trong phần điều chỉnh giao diện theo kích thước màn hình. */
+/* Lưới bố cục các thẻ chứng chỉ. */
+
+/* TỪNG THẺ CHỨNG CHỈ — Chia thành cột ảnh và cột mô tả, có khoảng cách giữa hai phần và giữa các thẻ. */
+.certificate-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  column-gap: 20px;
+
+  padding-right: 20px;
+  margin-bottom: 30px;
+}
+
+/* ẢNH CHỨNG CHỈ — Thiết lập chiều rộng và lề của ảnh trong mỗi thẻ. */
+.certificate-image img {
+  width: 200px;
+  object-fit: cover;
+  margin-left: 10px;
+}
+
+/* NỘI DUNG CHỨNG CHỈ — Xếp tiêu đề và các dòng mô tả theo chiều dọc, căn giữa theo chiều dọc. */
+/* Khối chữ nằm cạnh ảnh chứng chỉ. */
+.certificate-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.certificate-content h3 {
+  font-size: 10px;
+  font-weight: normal;
+  margin: 0 0 10px;
+}
+
+.certificate-content p {
+  font-size: 10px;
+  color: #777;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+/* ĐƯỜNG VIỀN CHỨNG CHỈ — :nth-child(2) chọn thẻ thứ hai; :nth-child(3) chọn thẻ thứ ba trong danh sách. */
+
+.certificate-item:nth-child(3) {
+  border-top: 1px solid #d6c08d;
+}
+.certificate-item:nth-child(2) {
+  border-left: 1px solid #d6c08d;
+}
+
+/* KHU VỰC DỰ ÁN — .project-section là khung tổng thể; .project-list chứa các thẻ dự án; các class .project-* định dạng ảnh và chi tiết. */
+/* =====================================================================
+   08. CÁC DỰ ÁN ĐÃ THỰC HIỆN
+   .project-section: khung tổng thể và khoảng đệm của khu vực.
+   .project-title: tiêu đề khu vực.
+   .project-list: lưới chứa các thẻ dự án.
+   .project-item: từng thẻ; .project-image: ảnh đại diện.
+   .project-name / .project-info: tên, năm, đơn vị và vị trí thực hiện.
+   .project-detail-row: mỗi dòng mô tả, nhiệm vụ hoặc công nghệ.
+   ===================================================================== */
+.project-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.project-title {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.project-list {
+  padding: 20px;
+}
+
+/* Viền bao quanh toàn bộ thông tin của một dự án. */
+.project-item {
+  border: 1px solid #ddd;
+}
+
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-name {
+  padding: 15px 20px;
+  font-size: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.project-info {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  gap: 10px;
+  padding: 10px 10px;
+}
+
+.project-year {
+  padding: 7px 15px;
+  border-radius: 20px;
+  background-color: #159fe5;
+  color: white;
+}
+
+/* Một dòng chi tiết: cột nhãn bên trái và cột mô tả bên phải. */
+.project-detail-row {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  border-top: 1px solid #ddd;
+  font-size: 12px;
+}
+
+/* Nhãn của dòng chi tiết, ví dụ: Mô tả, Nhiệm vụ hoặc Công nghệ. */
+.project-detail-title {
+  padding: 10px;
+  color: #777;
+}
+
+/* Nội dung chi tiết tương ứng với nhãn ở bên trái. */
+.project-detail-content {
+  padding: 10px;
+  color: #777;
+  line-height: 1.5;
+}
+.project-member,
+.project-position {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* THÔNG TIN LIÊN HỆ — Khu vực chân trang và các liên kết mạng xã hội. */
+
+/* =====================================================================
+   09. THÔNG TIN LIÊN HỆ VÀ LIÊN KẾT MẠNG XÃ HỘI
+   .contact: khung chân trang.
+   .contact-item: từng nhóm liên kết.
+   .contact-item a: đường dẫn; .contact-item i: biểu tượng;
+   .contact-item span: nhãn chữ bên cạnh biểu tượng.
+   ===================================================================== */
+.contact {
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 30px 0;
+}
+
+.contact-item {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.contact-item a {
+  text-decoration: none;
+  color: #999;
+  font-size: 12px;
+}
+
+.contact-item i {
+  display: inline-block;
+  margin-right: 5px;
+  color: #159fe5;
+  font-size: 28px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.contact-item span {
+  vertical-align: middle;
+}
+/* ---------------------------------------------------------------------
+   09.1. ẢNH ĐẠI DIỆN TRÒN CHỒNG LÊN THANH ĐIỀU HƯỚNG
+   Khối này được định vị tuyệt đối so với vùng chứa có position: relative.
+   Chỉnh .avatar-circle để đổi vị trí/kích thước; chỉnh ảnh bên trong để đổi cách cắt ảnh.
+   --------------------------------------------------------------------- */
+.avatar-circle {
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border: 10px solid white;
+  border-radius: 50%;
+
+  overflow: hidden;
+  z-index: 10;
+}
+
+.avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* =====================================================================
+   10. QUY TẮC TÙY CHỈNH FONT CHỮ VÀ MÀU SẮC
+   Các quy tắc bên dưới có thể ghi đè thiết lập font/màu đã khai báo trước đó.
+   Khi kiểm tra font chữ, độ đậm hoặc màu chữ, hãy xem nhóm này trước.
+   ===================================================================== */
+body {
+  font-family: "open_sansregular", "Open Sans", sans-serif;
+  color: #555;
+}
+
+.project-title,
+.certificate-title {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+}
+
+.info-title-text,
+.bar-title {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+}
+
+.experience-content h4,
+.certificate-content h3,
+.project-name {
+  font-family: "open_sanssemibold", "Open Sans", sans-serif;
+  font-weight: normal;
+  color: #333;
+}
+
+.info-date {
+  font-family: "open_sansitalic", "Open Sans", sans-serif;
+  color: #777;
+}
+
+.overview-content p,
+.overview-info p,
+.info-content,
+.certificate-content p,
+.project-detail-title,
+.project-detail-content {
+  font-family: "open_sansregular", "Open Sans", sans-serif;
+  color: #777;
+}
+
+.project-info {
+  font-family: "open_sansregular", "Open Sans", sans-serif;
+  color: #777;
+}
+
+.project-member,
+.project-position {
+  color: #777;
+}
+
+.contact {
+  font-family: "open_sansregular", "Open Sans", sans-serif;
+  background-color: #f7f7f7;
+}
+
+.contact-item a {
+  color: #999;
+}
+
+.contact-item i {
+  color: #159fe5;
+}
+
+.centered h1 {
+  font-family: "open_sansregular", "Open Sans", sans-serif;
+  font-weight: normal;
+}
+
+.centered p {
+  font-family: "open_sansregular", "Open Sans", sans-serif;
+}
+
+/* =====================================================================
+   11. ĐIỀU CHỈNH THEO MÀN HÌNH — MÁY TÍNH BẢNG VÀ MÀN HÌNH VỪA
+   Áp dụng khi chiều rộng màn hình không lớn hơn 991.98px.
+   Nhóm này tinh chỉnh lề trang, banner, menu, Overview, sáu thẻ thông tin,
+   chứng chỉ, dự án và liên hệ để tránh chật hoặc tràn nội dung.
+   ===================================================================== */
+@media (max-width: 991.98px) {
+  .cv-page {
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+  }
+
+  .avatar {
+    height: 225px;
+  }
+
+  .centered {
+    top: 19%;
+    width: 90%;
+  }
+
+  .centered h1 {
+    font-size: 19px;
+  }
+
+  .nav {
+    height: 44px;
+  }
+
+  /* MÁY TÍNH BẢNG — Thanh điều hướng: ẩn phần ở giữa và hai khoảng trống, chia đều không gian cho bốn liên kết chính. */
+  .nav-space,
+  .nav-center,
+  .avatar-circle {
+    display: none;
+  }
+
+  .nav-left,
+  .nav-right {
+    flex: 0 0 50%;
+    width: 50%;
+    min-width: 0;
+    justify-content: stretch;
+  }
+
+  .nav-left a,
+  .nav-right a {
+    width: 50%;
+    padding: 0 6px;
+    font-size: 9px;
+  }
+
+  .nav-left a i,
+  .nav-right a i {
+    margin-right: 3px;
+    font-size: 11px;
+  }
+
+  .overview {
+    height: auto;
+    min-height: 250px;
+  }
+
+  .overview-left,
+  .overview-right {
+    min-height: 250px;
+  }
+
+  .overview-content,
+  .overview-info {
+    width: auto;
+    height: auto;
+    margin: 24px 18px;
+  }
+
+  .overview-content h2,
+  .overview-info h2 {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .overview-content p {
+    font-size: 10px;
+    letter-spacing: 0.2px;
+    line-height: 1.55;
+  }
+
+  .overview-info p,
+  .overview-info p strong {
+    font-size: 11px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+
+  /* MÁY TÍNH BẢNG — Sáu thẻ thông tin chuyển từ ba cột xuống hai cột để mỗi thẻ có thêm chiều rộng. */
+  .info {
+    width: 92%;
+  }
+
+  .info-items {
+    min-width: 0;
+    overflow: visible;
+  }
+
+  #experience-section.info-items,
+  #personal-section.info-items {
+    height: auto;
+    min-height: 0;
+  }
+
+  .info-title {
+    height: 86px;
+  }
+
+  .info-title-text {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  .info-content {
+    font-size: 9px;
+    letter-spacing: 0.1px;
+    line-height: 1.45;
+    padding: 0 8px 12px 0;
+  }
+
+  .experience-item {
+    grid-template-columns: 12px minmax(0, 1fr);
+    column-gap: 6px;
+    line-height: 1.45;
+  }
+
+  .experience-dot {
+    margin-left: 4px;
+  }
+
+  .hobby {
+    flex-wrap: wrap;
+    gap: 12px;
+    height: auto;
+  }
+
+  .hobby-item {
+    margin-right: 0;
+  }
+
+  .hobby-text {
+    font-size: 8px;
+  }
+
+  /* MÁY TÍNH BẢNG — Chứng chỉ vẫn xếp hai cột; ảnh tự thu nhỏ để vừa từng thẻ. */
+  .certificate-section {
+    width: 100%;
+    padding: 20px 16px;
+  }
+
+  .certificate-item {
+    grid-template-columns: minmax(0, 200px) minmax(0, 1fr);
+    column-gap: 10px;
+    padding-right: 8px;
+    min-width: 0;
+  }
+
+  .certificate-image img {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-left: 0;
+  }
+
+  .certificate-content h3 {
+    font-size: 9px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .certificate-content p {
+    font-size: 9px;
+    overflow-wrap: anywhere;
+  }
+
+  /* MÁY TÍNH BẢNG — Dự án vẫn có ba cột; chữ được phép xuống dòng để tránh tràn khỏi thẻ. */
+  .project-list {
+    padding: 12px;
+  }
+
+  .project-item {
+    min-width: 0;
+  }
+
+  .project-image {
+    height: 145px;
+  }
+
+  .project-name {
+    padding: 10px;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+  }
+
+  .project-info {
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .project-year {
+    padding: 5px 10px;
+  }
+
+  .project-member,
+  .project-position {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .project-detail-row {
+    grid-template-columns: minmax(58px, 30%) minmax(0, 1fr);
+    font-size: 10px;
+  }
+
+  .project-detail-title,
+  .project-detail-content {
+    min-width: 0;
+    padding: 7px;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-item i {
+    font-size: clamp(22px, 3vw, 28px);
+  }
+}
+
+/* =====================================================================
+   12. ĐIỀU CHỈNH THEO MÀN HÌNH — ĐIỆN THOẠI
+   Áp dụng khi chiều rộng màn hình không lớn hơn 767.98px.
+   Các khu vực chính chuyển sang bố cục dọc; lề, cỡ chữ, ảnh và khoảng cách
+   được điều chỉnh để nội dung dễ đọc trên màn hình hẹp.
+   ===================================================================== */
+@media (max-width: 767.98px) {
+  .cv-page {
+    width: 100%;
+    padding: 12px;
+    min-height: 0;
+  }
+
+  .avatar {
+    height: 180px;
+    object-position: center;
+  }
+
+  .centered {
+    top: 20%;
+    width: 94%;
+  }
+
+  .centered h1 {
+    font-size: 17px;
+  }
+
+  .centered p {
+    font-size: 9px;
+    line-height: 1.4;
+  }
+
+  /* ĐIỆN THOẠI — Thanh điều hướng: xếp bốn liên kết theo chiều dọc và ẩn các khối chỉ dùng để tạo khoảng trống. */
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    border: 0;
+  }
+
+  .nav-space,
+  .nav-center,
+  .avatar-circle {
+    display: none;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+
+  .nav-left a,
+  .nav-right a {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 38px;
+    height: auto;
+    justify-content: center;
+    border: 0;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+
+  .nav-left a i,
+  .nav-right a i {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+  /* ĐIỆN THOẠI — Tổng quan: xếp mục tiêu nghề nghiệp và thông tin cá nhân thành hai khối theo chiều dọc. */
+  .overview {
+    height: auto;
+    min-height: 0;
+  }
+
+  .overview-left,
+  .overview-right {
+    max-width: 100%;
+    min-height: 0;
+  }
+
+  .overview-content,
+  .overview-info {
+    width: auto;
+    height: auto;
+    margin: 24px 18px;
+  }
+
+  .overview-content h2,
+  .overview-info h2 {
+    font-size: 19px;
+    margin-bottom: 16px;
+  }
+
+  .overview-content p,
+  .overview-info p,
+  .overview-info p strong {
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 1.65;
+  }
+
+  /* ĐIỆN THOẠI — Sáu thẻ thông tin xếp thành một cột; điều chỉnh chiều cao để hạn chế cắt mất nội dung. */
+  .info {
+    width: 100%;
+    margin: 0 auto;
+    padding: 4px 0;
+  }
+
+  .info-items {
+    min-width: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  #experience-section.info-items,
+  #personal-section.info-items {
+    height: auto;
+    min-height: 0;
+  }
+
+  .info-title {
+    grid-template-columns: minmax(0, 1fr) 56px;
+    height: 78px;
+  }
+
+  .info-title-text {
+    font-size: 19px;
+    margin: 12px;
+  }
+
+  .info-title-icon {
+    font-size: 24px;
+  }
+
+  .info-content {
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 1.55;
+    padding: 0 14px 14px 0;
+  }
+
+  .experience-item {
+    grid-template-columns: 12px minmax(0, 1fr);
+    column-gap: 7px;
+    margin-bottom: 16px;
+    line-height: 1.55;
+  }
+
+  .experience-content h4 {
+    line-height: 1.45;
+  }
+
+  .experience-content p {
+    margin-bottom: 5px;
+  }
+
+  .experience-dot {
+    margin-left: 4px;
+  }
+
+  .hobby {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    height: auto;
+    margin: 0 12px;
+  }
+
+  .hobby-item {
+    margin-right: 0;
+  }
+
+  .hobby-text {
+    font-size: 10px;
+  }
+
+  .bar-title {
+    font-size: 11px;
+  }
+
+  /* ĐIỆN THOẠI — Chứng chỉ: mỗi thẻ chiếm một hàng; bỏ viền cạnh/trên và chỉ giữ đường viền dưới. */
+  .certificate-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 12px;
+  }
+
+  .certificate-title,
+  .project-title {
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 22px;
+  }
+
+  .certificate-item,
+  .certificate-item:nth-child(2),
+  .certificate-item:nth-child(3) {
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 10px;
+    min-width: 0;
+    margin: 0;
+    padding: 0 0 20px;
+    border-left: 0;
+    border-top: 0;
+    border-bottom: 1px solid #d6c08d;
+  }
+
+  .certificate-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+  }
+
+  .certificate-content h3 {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .certificate-content p {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  /* ĐIỆN THOẠI — Dự án: mỗi thẻ nằm trên một hàng; ảnh và nội dung co giãn theo chiều rộng màn hình. */
+  .project-section {
+    padding: 24px 0;
+  }
+
+  .project-list {
+    padding: 0;
+  }
+
+  .project-item {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .project-name {
+    padding: 12px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .project-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .project-year {
+    padding: 5px 11px;
+  }
+
+  .project-detail-row {
+    grid-template-columns: minmax(72px, 27%) minmax(0, 1fr);
+    font-size: 11px;
+  }
+
+  .project-detail-title,
+  .project-detail-content {
+    padding: 8px;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  /* ĐIỆN THOẠI — Liên hệ: căn giữa biểu tượng, cho phép xuống hàng và giảm kích thước phù hợp màn hình. */
+  .contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    padding: 22px 8px;
+  }
+
+  .contact-item {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .contact-item i {
+    font-size: clamp(21px, 6vw, 26px);
+    margin-right: 4px;
+  }
+
+  .contact-item a {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+  }
+}
+
+/* =====================================================================
+   13. ĐIỀU CHỈNH THEO MÀN HÌNH — ĐIỆN THOẠI RẤT NHỎ
+   Áp dụng cho màn hình rộng tối đa 360px. Nhóm này tinh chỉnh thêm lề,
+   cỡ tiêu đề và cách chia cột của dòng chi tiết dự án.
+   ===================================================================== */
+@media (max-width: 360px) {
+  .cv-page {
+    padding: 8px;
+  }
+
+  .overview-content,
+  .overview-info {
+    margin: 20px 14px;
+  }
+
+  .certificate-title,
+  .project-title {
+    font-size: 20px;
+  }
+
+  .project-detail-row {
+    grid-template-columns: minmax(64px, 29%) minmax(0, 1fr);
+    font-size: 10px;
+  }
+}
+
+/* =====================================================================
+   14. Chức năng ẩn thông tin cá nhân
+   ===================================================================== */
+.hide {
+  display: none;
+}

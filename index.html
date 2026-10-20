@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="vn">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link href="./css/laptop.css" rel="stylesheet" />
+    <link href="./css/tablet.css" rel="stylesheet" />
+    <link href="./css/mobile.css" rel="stylesheet" />
+    <link href="./css/font.css" rel="stylesheet" />
+    <script src="./js/script.js" defer></script>
+
+    <title>CV Cá Nhân - Ngô Duy Khánh</title>
+  </head>
+  <body>
+    <div class="cv-document">
+      <div class="cv-page">
+        <div class="section-content">
+          <!-- Ảnh đại diện và tiêu đề CV -->
+          <div class="main-avatar">
+            <img
+              alt="Ảnh đại diện"
+              class="avatar"
+              src="./images/cyber-gang.png"
+            />
+            <div class="centered">
+              <h1>Ngô Duy Khánh</h1>
+              <p>Fullstack Developer - CEO Cyber Gang</p>
+            </div>
+          </div>
+          <!-- Điều hướng đến các phần của CV -->
+          <nav class="nav">
+            <div class="nav-space"></div>
+
+            <div class="nav-left">
+              <a href="#info">
+                THÔNG TIN
+                <i class="icon-user"></i>
+              </a>
+              <a href="#profile">
+                LÝ LỊCH
+                <i class="icon-doc-text-inv"></i>
+              </a>
+            </div>
+
+            <div class="nav-center">
+              <div>Ngô Duy Khánh</div>
+              <span> Full Stack Developer </span>
+            </div>
+
+            <div class="avatar-circle">
+              <img src="./images/ceo.jpg" alt="Ngô Duy Khánh" />
+            </div>
+
+            <div class="nav-right">
+              <a href="#certificate">
+                CHỨNG CHỈ
+                <i class="icon-mail-alt"></i>
+              </a>
+              <a href="#project">
+                DỰ ÁN
+                <i class="icon-star-1"></i>
+              </a>
+            </div>
+
+            <div class="nav-space"></div>
+          </nav>
+
+          <!-- Tổng quan và thông tin cá nhân -->
+          <div class="overview row g-0" id="info">
+            <div class="overview-left col-12 col-md-6">
+              <div class="overview-content">
+                <h2>Mục tiêu nghề nghiệp</h2>
+                <p>
+                  Là một sinh viên đã hoàn thành chương trình chứng chỉ Doanh
+                  Nghiệp của FUNiX. Em mong muốn mình sẽ được làm việc với vị
+                  trí Fullstack Developer, có thể vận dụng những kiến thức đã
+                  được trao đổi và không ngừng học hỏi để phát triển bản thân,
+                  cũng như hoàn thành tốt nhất công việc được giao.
+                </p>
+              </div>
+            </div>
+
+            <div class="overview-right col-12 col-md-6">
+              <div class="overview-info">
+                <h2>Thông tin cá nhân</h2>
+                <div id="email-form-container">
+                  <form id="email-form" novalidate>
+                    <div class="mb-2">
+                      <input
+                        type="text"
+                        id="email-input"
+                        class="form-control"
+                        placeholder="Enter email"
+                        autocomplete="email"
+                        aria-describedby="email-help email-error"
+                      />
+                      <div id="email-help" class="form-text">
+                        Hãy nhập email để xác thực
+                      </div>
+                      <small id="email-error" class="text-danger"></small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-sm">
+                      Submit
+                    </button>
+                  </form>
+                </div>
+                <div id="personal-info" class="hide">
+                  <p><strong>Giới tính</strong>: Nam</p>
+                  <p><strong>Ngày sinh</strong>: 11/11/20xx</p>
+                  <p><strong>Điện thoại</strong>: (+84) 941179xxx</p>
+                  <p><strong>Email</strong>: fx6031@funix.edu.vn</p>
+                  <p><strong>Địa chỉ</strong>: Số 8, đường 32, Hà Nội</p>
+                  <p><strong>Website</strong>: https://duyXoX.edu.vn</p>
+                  <div class="social-links">
+                    <a href="https://x.com/" aria-label="Twitter">
+                      <i class="icon-twitter"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/" aria-label="Facebook">
+                      <i class="icon-facebook"></i>
+                    </a>
+
+                    <a href="https://www.google.com/" aria-label="Google Plus">
+                      <i class="icon-gplus"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/" aria-label="LinkedIn">
+                      <i class="icon-linkedin"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kinh nghiệm, học vấn, hoạt động, sở thích, ngôn ngữ và kỹ năng -->
+          <div
+            class="info row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3"
+            id="profile"
+          >
+            <div class="col">
+              <div class="info-items h-100">
+                <div class="info-title">
+                  <div class="info-title-text">Kinh nghiệm</div>
+                  <div class="info-title-icon">
+                    <i class="ic-toolbox"></i>
+                  </div>
+                </div>
+
+                <button class="toggle-info" type="button" aria-expanded="false">
+                  Xem thêm
+                </button>
+
+                <div class="info-content hide">
+                  <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                      <h4>Full Stack Developer - Công ty Y</h4>
+                      <p class="info-date">
+                        05/2022 -
+                        <span> Hiện tại </span>
+                      </p>
+                      <p>
+                        - Xây dựng, phát triển Website dựa trên thiết kế và yêu
+                        cầu đã có.
+                      </p>
+                      <p>
+                        - Phân tích và thiết kế Database, sử dụng các hệ quản
+                        trị CSDL (MySQL, SQLServer, NoSQL, ...) và viết được các
+                        câu truy vấn.
+                      </p>
+                      <p>
+                        - Sử dụng ngôn ngữ server-side (Python, Java, ...) để
+                        xây dựng các Web Service
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                      <h4>Web Designer - Công ty X</h4>
+                      <p class="info-date">06/2021 - 04/2022</p>
+                      <p>- Thiết kế Website dự trên yêu cầu của khách hàng.</p>
+                      <p>- Sử dụng các công cụ: Figma, Canva, PTS.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="info-items h-100">
+                <div class="info-title">
+                  <div class="info-title-text">Học vấn</div>
+                  <div class="info-title-icon">
+                    <i class="ic-pencil"> </i>
+                  </div>
+                </div>
+
+                <button class="toggle-info" type="button" aria-expanded="false">
+                  Xem thêm
+                </button>
+
+                <div class="info-content hide">
+                  <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                      <h4>FUNIX</h4>
+                      <p class="info-date">06/2021 - 05/2022</p>
+                      <p>
+                        - Tốt nghiệp chứng chỉ doanh nghiệp nhánh Fullstack.
+                      </p>
+                      <p>- GPA: 9 / 10</p>
+                    </div>
+                  </div>
+                  <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                      <h4>Cử nhân - ĐH FPT</h4>
+                      <p class="info-date">08/2016 - 07/2019</p>
+                      <p>- Chuyên ngành: Kỹ thuật phần mềm.</p>
+                      <p>- GPA: 3.2 / 4</p>
+                    </div>
+                  </div>
+                  <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                      <h4>Đại học Hà Nội</h4>
+                      <p class="info-date">08/2016 - 02/2018</p>
+                      <p>- Hệ từ xa, Chuyên ngành: Ngôn ngữ Nhật.</p>
+                      <p>- GPA: 2.8 / 4</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="info-items h-100">
+                <div class="info-title">
+                  <div class="info-title-text">Hoạt động</div>
+                  <div class="info-title-icon">
+                    <i class="ic-toolbox"> </i>
+                  </div>
+                </div>
+
+                <button class="toggle-info" type="button" aria-expanded="false">
+                  Xem thêm
+                </button>
+
+                <div class="info-content hide">
+                  <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                      <h4>FPT Edu Hackathon 2019</h4>
+                      <p class="info-date">03/2019 - 05/2019</p>
+                      <p>- Giải 3 bảng A</p>
+                      <p>- Đề tài: Trang web về phân loại rác thải.</p>
+                    </div>
+                  </div>
+                  <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                      <h4>Câu lạc bộ Z</h4>
+                      <p class="info-date">08/2016 - 08/2017</p>
+                      <p>- Trưởng ban chuyên môn</p>
+                    </div>
+                  </div>
+                  <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-content">
+                      <h4>Câu lạc bộ Z</h4>
+                      <p class="info-date">08/2016 - 08/2017</p>
+                      <p>
+                        - Hỗ trợ tổ chức tuần lễ văn hoá Việt Nam - Nhật Bản
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="info-items h-100">
+                <div class="info-title">
+                  <div class="info-title-text">Sở thích</div>
+                  <div class="info-title-icon">
+                    <i class="ic-telescope"> </i>
+                  </div>
+                </div>
+
+                <button class="toggle-info" type="button" aria-expanded="false">
+                  Xem thêm
+                </button>
+
+                <div class="info-content hide">
+                  <div class="hobby">
+                    <div class="hobby-item">
+                      <div class="hobby-icon">
+                        <i class="ic-megaphone"> </i>
+                      </div>
+                      <div class="hobby-text">Âm nhạc</div>
+                    </div>
+                    <div class="hobby-item">
+                      <div class="hobby-icon">
+                        <i class="ic-strategy"> </i>
+                      </div>
+                      <div class="hobby-text">Chơi game</div>
+                    </div>
+                    <div class="hobby-item">
+                      <div class="hobby-icon">
+                        <i class="ic-hotairballoon"> </i>
+                      </div>
+                      <div class="hobby-text">Du lịch</div>
+                    </div>
+                    <div class="hobby-item">
+                      <div class="hobby-icon">
+                        <i class="ic-basket"> </i>
+                      </div>
+                      <div class="hobby-text">Nấu ăn</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="info-items h-100">
+                <div class="info-title">
+                  <div class="info-title-text">Ngôn ngữ</div>
+                  <div class="info-title-icon">
+                    <i class="ic-mic"> </i>
+                  </div>
+                </div>
+
+                <button class="toggle-info" type="button" aria-expanded="false">
+                  Xem thêm
+                </button>
+
+                <div class="info-content hide">
+                  <div class="bar-item">
+                    <div class="bar-title">Tiếng Anh - IELTS 7.0</div>
+                    <div class="bar-progress">
+                      <div class="bar active"></div>
+                      <div class="bar active"></div>
+                      <div class="bar"></div>
+                    </div>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar-title">Japanese - N3</div>
+                    <div class="bar-progress">
+                      <div class="bar active"></div>
+                      <div class="bar"></div>
+                      <div class="bar"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="info-items h-100">
+                <div class="info-title">
+                  <div class="info-title-text">Kỹ năng</div>
+                  <div class="info-title-icon">
+                    <i class="ic-tools-2"> </i>
+                  </div>
+                </div>
+
+                <button class="toggle-info" type="button" aria-expanded="false">
+                  Xem thêm
+                </button>
+
+                <div class="info-content hide">
+                  <div class="bar-item">
+                    <div class="bar-title">HTML/CSS: Fundamental</div>
+                    <div class="bar-progress">
+                      <div class="bar active"></div>
+                      <div class="bar active"></div>
+                      <div class="bar"></div>
+                    </div>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar-title">Javascript: Intermediate</div>
+                    <div class="bar-progress">
+                      <div class="bar active"></div>
+                      <div class="bar active"></div>
+                      <div class="bar"></div>
+                    </div>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar-title">NodeJS: Intermediate</div>
+                    <div class="bar-progress">
+                      <div class="bar active"></div>
+                      <div class="bar active"></div>
+                      <div class="bar active"></div>
+                    </div>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar-title">Bootstrap 5: Fundamental</div>
+                    <div class="bar-progress">
+                      <div class="bar active"></div>
+                      <div class="bar"></div>
+                      <div class="bar"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chứng chỉ và giải thưởng -->
+          <div class="certificate-section" id="certificate">
+            <h2 class="certificate-title">Chứng chỉ - Giải thưởng</h2>
+            <div class="certificate-list row g-3">
+              <div class="certificate-item col-12 col-md-6">
+                <div class="certificate-image">
+                  <img
+                    alt="Chứng chỉ lập trình Web"
+                    src="./images/Cert_WEB.png"
+                  />
+                </div>
+                <div class="certificate-content">
+                  <h3>CHỨNG CHỈ LẬP TRÌNH WEB - FUNIX</h3>
+                  <p>- Chứng chỉ thuộc chương trình CCDN</p>
+                  <p>- GPA: 8.6</p>
+                </div>
+              </div>
+
+              <div class="certificate-item col-12 col-md-6">
+                <div class="certificate-image">
+                  <img
+                    alt="Chứng chỉ lập trình Javascript"
+                    src="./images/Cert_PRF.png"
+                  />
+                </div>
+                <div class="certificate-content">
+                  <h3>CHỨNG CHỈ LẬP TRÌNH JAVASCRIPT - FUNIX</h3>
+                  <p>- Chứng chỉ thuộc chương trình CCDN</p>
+                  <p>- GPA: 8.9</p>
+                </div>
+              </div>
+
+              <div class="certificate-item col-12">
+                <div class="certificate-image">
+                  <img
+                    alt="Chứng chỉ thiết kế Database"
+                    src="./images/Cert_DBI.png"
+                  />
+                </div>
+                <div class="certificate-content">
+                  <h3>CHỨNG CHỈ THIẾT KẾ DATABASE - FUNIX</h3>
+                  <p>- Chứng chỉ thuộc chương trình CCDN</p>
+                  <p>- GPA: 8.0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Các dự án đã thực hiện -->
+          <section class="project-section" id="project">
+            <h2 class="project-title">Dự án</h2>
+            <div class="project-list row g-3">
+              <div class="col-12 col-md-4">
+                <div class="project-item h-100">
+                  <img
+                    alt="CV cá nhân"
+                    class="project-image"
+                    src="./images/project_1.png"
+                  />
+                  <div class="project-name">CV CÁ NHÂN</div>
+                  <div class="project-info">
+                    <div class="project-year">2021</div>
+                    <div class="project-member">
+                      <i class="icon-user-1"> </i>
+                      FUNiX
+                    </div>
+                    <div class="project-position">
+                      <i class="icon-lamp"> </i>
+                      Developer
+                    </div>
+                  </div>
+                  <div class="project-detail">
+                    <div class="project-detail-row">
+                      <div class="project-detail-title">Mô tả</div>
+                      <div class="project-detail-content">
+                        Trang Web CV cá nhân online. Gồm các thông tin cá nhân
+                        cũng như kỹ năng nghề nghiệp.
+                      </div>
+                    </div>
+                    <div class="project-detail-row">
+                      <div class="project-detail-title">Nhiệm vụ</div>
+                      <div class="project-detail-content">
+                        - Phát triển code - Review code - Tối ưu code - Xử lý
+                        lỗi
+                      </div>
+                    </div>
+                    <div class="project-detail-row">
+                      <div class="project-detail-title">Công nghệ</div>
+                      <div class="project-detail-content">- HTML, CSS</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <div class="project-item h-100">
+                  <img
+                    alt="Trang web quản lý thú cưng"
+                    class="project-image"
+                    src="./images/project_2.png"
+                  />
+                  <div class="project-name">TRANG WEB QUẢN LÝ THÚ CƯNG</div>
+                  <div class="project-info">
+                    <div class="project-year">2021</div>
+                    <div class="project-member">
+                      <i class="icon-user-1"> </i>
+                      FUNiX
+                    </div>
+                    <div class="project-position">
+                      <i class="icon-lamp"> </i>
+                      Developer
+                    </div>
+                  </div>
+                  <div class="project-detail">
+                    <div class="project-detail-row">
+                      <div class="project-detail-title">Mô tả</div>
+                      <div class="project-detail-content">
+                        Ứng dụng giúp quản lý các thông tin của thú cưng như:
+                        Cân nặng, giống, tình trạng tiêm chủng, ... Bao gồm các
+                        chức năng thêm / sửa / xóa.
+                      </div>
+                    </div>
+                    <div class="project-detail-row">
+                      <div class="project-detail-title">Nhiệm vụ</div>
+                      <div class="project-detail-content">
+                        - Phát triển code - Review code - Tối ưu code - Xử lý
+                        lỗi
+                      </div>
+                    </div>
+                    <div class="project-detail-row">
+                      <div class="project-detail-title">Công nghệ</div>
+                      <div class="project-detail-content">
+                        - HTML, CSS, Javascript
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <div class="project-item h-100">
+                  <img
+                    alt="Trang web xem tin tức"
+                    class="project-image"
+                    src="./images/project_3.png"
+                  />
+                  <div class="project-name">TRANG WEB XEM TIN TỨC</div>
+                  <div class="project-info">
+                    <div class="project-year">2021</div>
+                    <div class="project-member">
+                      <i class="icon-user-1"> </i>
+                      FUNiX
+                    </div>
+                    <div class="project-position">
+                      <i class="icon-lamp"> </i>
+                      Developer
+                    </div>
+                  </div>
+                  <div class="project-detail">
+                    <div class="project-detail-row">
+                      <div class="project-detail-title">Mô tả</div>
+                      <div class="project-detail-content">
+                        Trang Web xem tin tức từ nhiều nguồn khác nhau, người
+                        dùng có thể tìm kiếm các tin tức dựa theo các từ khóa.
+                      </div>
+                    </div>
+                    <div class="project-detail-row">
+                      <div class="project-detail-title">Nhiệm vụ</div>
+                      <div class="project-detail-content">
+                        - Phát triển code - Review code - Tối ưu code - Xử lý
+                        lỗi
+                      </div>
+                    </div>
+                    <div class="project-detail-row">
+                      <div class="project-detail-title">Công nghệ</div>
+                      <div class="project-detail-content">
+                        - HTML, CSS, Javascript
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Liên kết mạng xã hội và liên hệ -->
+        <div class="section" id="contact">
+          <div class="section-content">
+            <div class="contact">
+              <div class="contact-item">
+                <a href="https://www.facebook.com/" target="_blank">
+                  <i class="icon-facebook-circled"> </i>
+                  <span> Facebook </span>
+                </a>
+              </div>
+              <div class="contact-item">
+                <a href="https://www.linkedin.com/" target="_blank">
+                  <i class="icon-linkedin-circled"> </i>
+                  <span> Linkedin </span>
+                </a>
+              </div>
+              <div class="contact-item">
+                <a href="https://github.com/" target="_blank">
+                  <i class="icon-github-circled"> </i>
+                  <span> Github </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

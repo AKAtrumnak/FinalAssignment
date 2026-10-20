@@ -1,0 +1,225 @@
+/* 11. ĐIỀU CHỈNH THEO MÀN HÌNH — MÁY TÍNH BẢNG VÀ MÀN HÌNH VỪA */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .cv-page {
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+  }
+
+  .avatar {
+    height: 225px;
+  }
+
+  .centered {
+    top: 19%;
+    width: 90%;
+  }
+
+  .centered h1 {
+    font-size: 19px;
+  }
+
+  .nav {
+    height: 44px;
+  }
+
+  .nav-space,
+  .nav-center,
+  .avatar-circle {
+    display: none;
+  }
+
+  .nav-left,
+  .nav-right {
+    flex: 0 0 50%;
+    width: 50%;
+    min-width: 0;
+    justify-content: stretch;
+  }
+
+  .nav-left a,
+  .nav-right a {
+    width: 50%;
+    padding: 0 6px;
+    font-size: 9px;
+  }
+
+  .nav-left a i,
+  .nav-right a i {
+    margin-right: 3px;
+    font-size: 11px;
+  }
+
+  .overview {
+    height: auto;
+    min-height: 250px;
+  }
+
+  .overview-left,
+  .overview-right {
+    min-height: 250px;
+  }
+
+  .overview-content,
+  .overview-info {
+    width: auto;
+    height: auto;
+    margin: 24px 18px;
+  }
+
+  .overview-content h2,
+  .overview-info h2 {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .overview-content p {
+    font-size: 10px;
+    letter-spacing: 0.2px;
+    line-height: 1.55;
+  }
+
+  .overview-info p,
+  .overview-info p strong {
+    font-size: 11px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+
+  .info {
+    width: 92%;
+  }
+
+  .info-items {
+    min-width: 0;
+    overflow: visible;
+  }
+
+  #experience-section.info-items,
+  #personal-section.info-items {
+    height: auto;
+    min-height: 0;
+  }
+
+  .info-title {
+    height: 86px;
+  }
+
+  .info-title-text {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  .info-content {
+    font-size: 9px;
+    letter-spacing: 0.1px;
+    line-height: 1.45;
+    padding: 0 8px 12px 0;
+  }
+
+  .experience-item {
+    grid-template-columns: 12px minmax(0, 1fr);
+    column-gap: 6px;
+    line-height: 1.45;
+  }
+
+  .experience-dot {
+    margin-left: 4px;
+  }
+
+  .hobby {
+    flex-wrap: wrap;
+    gap: 12px;
+    height: auto;
+  }
+
+  .hobby-item {
+    margin-right: 0;
+  }
+
+  .hobby-text {
+    font-size: 8px;
+  }
+
+  .certificate-section {
+    width: 100%;
+    padding: 20px 16px;
+  }
+
+  .certificate-item {
+    grid-template-columns: minmax(0, 200px) minmax(0, 1fr);
+    column-gap: 10px;
+    padding-right: 8px;
+    min-width: 0;
+  }
+
+  .certificate-image img {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-left: 0;
+  }
+
+  .certificate-content h3 {
+    font-size: 9px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .certificate-content p {
+    font-size: 9px;
+    overflow-wrap: anywhere;
+  }
+
+  .project-list {
+    padding: 12px;
+  }
+
+  .project-item {
+    min-width: 0;
+  }
+
+  .project-image {
+    height: 145px;
+  }
+
+  .project-name {
+    padding: 10px;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+  }
+
+  .project-info {
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .project-year {
+    padding: 5px 10px;
+  }
+
+  .project-member,
+  .project-position {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .project-detail-row {
+    grid-template-columns: minmax(58px, 30%) minmax(0, 1fr);
+    font-size: 10px;
+  }
+
+  .project-detail-title,
+  .project-detail-content {
+    min-width: 0;
+    padding: 7px;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-item i {
+    font-size: clamp(22px, 3vw, 28px);
+  }
+}
